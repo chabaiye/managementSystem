@@ -31,7 +31,7 @@
         </van-collapse>
       </scroll-view>
       <!-- 右侧物品详情 -->
-      <scroll-view style="height: 90vh;width: 65vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true">
+      <scroll-view style="height: 80vh;width: 65vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true">
       <!-- 外部大盒子，包含标题与每个的内容 -->
       <view style="height: auto; width: auto;" wx:for="{{goods}}" wx:key="item">
         <!-- 标题 -->
