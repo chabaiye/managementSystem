@@ -3,47 +3,62 @@
   title="标题"
 />
 <!-- 搜索框 -->
-<van-search value="" placeholder="请输入搜索关键词" />
+<view style="display: block;">
+  <van-search value="" placeholder="请输入搜索关键词" />
 <!-- 侧边栏 -->
-<view>
-  <view style="display: flex;">
-    <scroll-view style="height: 90vh;width: 20vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true">
-      <van-collapse value="{{ activeNames }}" bind:change="onChange">
-        <van-collapse-item title="标题1" name="1">
-          代码是写出来给人看的，附带能在机器上运行
-        </van-collapse-item>
-        <van-collapse-item title="标题2" name="2">
-          代码是写出来给人看的，附带能在机器上运行
-        </van-collapse-item>
-        <van-collapse-item title="标题3" name="3">
-          代码是写出来给人看的，附带能在机器上运行
-        </van-collapse-item>
-      </van-collapse>
-    </scroll-view>
-    <!-- 右侧物品详情 -->
-    <scroll-view style="height: 90vh;width: 80vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true">
-    <!-- 外部大盒子，包含标题与每个的内容 -->
-    <view wx:for="">
-      <!-- 标题 -->
-      <view>
-          <text>标题</text>
-      </view>
-      <!-- 二层标题外部盒子 -->
-      <view wx:for="">
-        <!-- 二层标题 -->
+  <view>
+    <view style="display: flex;">
+      <scroll-view style="width: 35vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true">
+        <van-collapse value="{{ activeNames }}" bind:change="onChange">
+          <van-collapse-item title="工具" name="1">
+            代码是写出来给人看的，附带能在机器上运行
+          </van-collapse-item>
+          <van-collapse-item title="量具" name="2">
+            代码是写出来给人看的，附带能在机器上运行
+          </van-collapse-item>
+          <van-collapse-item title="大型设备" name="3">
+            代码是写出来给人看的，附带能在机器上运行
+          </van-collapse-item>
+          <van-collapse-item title="航空部件" name="4">
+            代码是写出来给人看的，附带能在机器上运行
+          </van-collapse-item>
+          <van-collapse-item title="耗材" name="5">
+            代码是写出来给人看的，附带能在机器上运行
+          </van-collapse-item>
+          <van-collapse-item title="危险品" name="6">
+            代码是写出来给人看的，附带能在机器上运行
+          </van-collapse-item>
+        </van-collapse>
+      </scroll-view>
+      <!-- 右侧物品详情 -->
+      <scroll-view style="height: 90vh;width: 65vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true">
+      <!-- 外部大盒子，包含标题与每个的内容 -->
+      <view style="height: auto; width: auto;" wx:for="{{goods}}" wx:key="item">
+        <!-- 标题 -->
         <view>
-          <text>二层标题</text>
+            <text>{{item.name}}</text>
         </view>
-        <!-- 物品详情 -->
-        <view wx:for="">
+        <!-- 二层标题外部盒子 -->
+        <view wx:for="{{item.goodList}}" wx:key="item">
+          <!-- 二层标题 -->
           <view>
-            <image src="" mode=""/>
-            <text></text>
-            <text></text>
+            <text>{{item.name}}</text>
+          </view>
+          <!-- 物品详情 -->
+          <view wx:for="{{item.underGoodList}}" wx:key="item">
+            <view style="display: flex; align-items: flex-end;">
+              <image src="{{item.url}}" style="height: 35vw; width: 35vw;" mode=""/>
+              <view>
+                <view>{{item.name}}</view>
+                <view>还有{{item.num}}个</view>
+              </view>
+              
+              
+            </view>
           </view>
         </view>
       </view>
+      </scroll-view>
     </view>
-    </scroll-view>
   </view>
 </view>

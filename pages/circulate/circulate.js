@@ -6,45 +6,19 @@ Page({
    */
   data: {
     activeNames: ['1'],
-    active: 1,
-    mainActiveIndex: 0,
-    activeId: null,
-    items: [
-      {
-        // 导航名称
-        text: '城市1',
-        // 该导航下所有的可选项
-        children: [
-          {
-            // 名称
-            text: '温州',
-            // id，作为匹配选中状态的标识
-            id: 1,
-          },
-          {
-            text: '杭州',
-            id: 2,
-          },
-        ],
-      },
-      {
-        // 导航名称
-        text: '城市2',
-        // 该导航下所有的可选项
-        children: [
-          {
-            // 名称
-            text: '破州',
-            // id，作为匹配选中状态的标识
-            id: 1,
-          },
-          {
-            text: '杭州',
-            id: 2,
-          },
-        ],
-      },
-    ]
+    goods: [{
+      "name":"工具",
+      "num":5,
+      "goodList":[{
+        "name":"钳子类",
+        "num":0,
+        "underGoodList":[{
+          "name":"钳子1",
+          "url":"../../img/下载.jpg",
+          "num":10
+        }]
+      }]
+    }]
   },
    onChange(event) {
     this.setData({
