@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    activeNames: ['1'],
     active: 1,
     mainActiveIndex: 0,
     activeId: null,
@@ -45,4 +46,9 @@ Page({
       },
     ]
   },
+   onChange(event) {
+    this.setData({
+      activeNames: event.detail,
+    })
+  }
 })
