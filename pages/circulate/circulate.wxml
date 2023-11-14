@@ -3,13 +3,13 @@
   title="标题"
 />
 <!-- 搜索框 -->
-<view style="display: block;">
+<view >
   <van-search value="" placeholder="请输入搜索关键词" />
 <!-- 侧边栏 -->
   <view>
     <view style="display: flex;">
-      <scroll-view style="width: 35vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true">
-        <van-collapse value="{{ activeNames }}" bind:change="onChange">
+      <scroll-view style="width: 35vw;height:90vh; " enhanced="{{true}}"show-scrollbar="{{false}}" scroll-y="true">
+        <van-collapse accordion value="{{ activeNames }}" bind:change="onChange">
           <van-collapse-item title="工具" name="1">
             代码是写出来给人看的，附带能在机器上运行
           </van-collapse-item>
@@ -39,13 +39,13 @@
             <text>{{item.name}}</text>
         </view>
         <!-- 二层标题外部盒子 -->
-        <view wx:for="{{item.goodList}}" wx:key="item">
+        <view style="margin-top: 5vw;" wx:for="{{item.goodList}}" wx:key="item">
           <!-- 二层标题 -->
           <view>
             <text>{{item.name}}</text>
           </view>
           <!-- 物品详情 -->
-          <view wx:for="{{item.underGoodList}}" wx:key="item">
+          <view style="margin-top: 3vw;" wx:for="{{item.underGoodList}}" wx:key="item">
             <view style="display: flex; align-items: flex-end;">
               <image src="{{item.url}}" style="height: 35vw; width: 35vw;" mode=""/>
               <view>
