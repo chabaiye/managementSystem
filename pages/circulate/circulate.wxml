@@ -6,8 +6,7 @@
 <van-search value="" placeholder="请输入搜索关键词" />
 <!-- 侧边栏 -->
 <view>
-  <view>
-    
+  <view style="display: flex;">
     <scroll-view style="height: 90vh;width: 20vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true">
       <van-collapse value="{{ activeNames }}" bind:change="onChange">
         <van-collapse-item title="标题1" name="1">
@@ -20,6 +19,31 @@
           代码是写出来给人看的，附带能在机器上运行
         </van-collapse-item>
       </van-collapse>
+    </scroll-view>
+    <!-- 右侧物品详情 -->
+    <scroll-view style="height: 90vh;width: 80vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true">
+    <!-- 外部大盒子，包含标题与每个的内容 -->
+    <view wx:for="">
+      <!-- 标题 -->
+      <view>
+          <text>标题</text>
+      </view>
+      <!-- 二层标题外部盒子 -->
+      <view wx:for="">
+        <!-- 二层标题 -->
+        <view>
+          <text>二层标题</text>
+        </view>
+        <!-- 物品详情 -->
+        <view wx:for="">
+          <view>
+            <image src="" mode=""/>
+            <text></text>
+            <text></text>
+          </view>
+        </view>
+      </view>
+    </view>
     </scroll-view>
   </view>
 </view>
