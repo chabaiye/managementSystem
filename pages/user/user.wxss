@@ -1,0 +1,74 @@
+/* page{
+  background: #f1f1f1;
+} */
+/*用户*/
+.userRoot{
+  display: flex;
+  align-items: center;
+  margin: 40rpx;
+  border-bottom: 2rpx solid black;
+}
+/*用户头像*/
+.userPhoto{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin: 40rpx;
+}
+/*用户昵称*/
+.userName{
+  font-size: 40rpx;
+  font-weight: bold;
+  color: black;
+  width: 20vw;
+  margin-bottom: 10rpx;
+  margin-left: 10vw;
+  border-bottom: 2rpx solid black;
+}
+
+/*条目*/
+.entry{
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  background-color: white;
+  border-bottom: 5rpx solid gainsboro ;
+}
+/*条目内容*/
+.entryContent{
+  font-weight: 800;
+  margin-left: 30rpx;
+}
+/*箭头*/
+.arrow{
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  padding: 3px;
+  position: absolute;
+  right: 15px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.buttonNull{
+  width: 100%;
+  background: white;
+  border: none;
+  text-align: left;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1.3;
+  font-weight: 800;
+  font-size:medium;
+  margin-left: 30rpx;
+}
+.buttonNull::after{
+  border: none;
+  border-radius: 0;
+}
+/*登出*/
+.logOut{
+  font-size: 32rpx;
+  font-weight: 800;
+  width: 400rpx;
+  margin-top: 300rpx;
+}

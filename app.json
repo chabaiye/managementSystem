@@ -1,0 +1,70 @@
+{
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "van-tree-select": "@vant/weapp/tree-select/index",
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-icon": "@vant/weapp/icon/index"
+  },
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/circulate/circulate",
+    "pages/purchase/purchase",
+    "pages/logIn/logIn"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "white",
+    "color": "white",
+    "borderStyle": "white",
+    "selectedColor": "#d81e06",
+    "list":[
+    {
+      "pagePath": "pages/index/index",
+      "text": "主页",
+      "iconPath": "./img/index-black.png",
+      "selectedIconPath": "./img/index-red.png"
+    },
+    {
+      "pagePath": "pages/circulate/circulate",
+      "text": "借还",
+      "iconPath": "./img/circulate-black.png",
+      "selectedIconPath": "./img/ciculate-red.png"
+    },
+    {
+      "pagePath": "pages/purchase/purchase",
+      "text": "申购",
+      "iconPath": "./img/purchase-black.png",
+      "selectedIconPath": "./img/purchase-red.png"
+    },
+    {
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath": "./img/user-black.png",
+      "selectedIconPath": "./img/user-red.png"
+    }]
+  },
+  "renderer": "skyline",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,70 @@
+<!--pages/circulate/circulate.wxml-->
+<van-nav-bar
+  title="标题"
+/>
+<!-- 搜索框 -->
+<van-search value="" placeholder="请输入搜索关键词" />
+<!-- <view style="display: flex;">
+  <van-tabs style=" margin-left: 10vw;" active="{{ active }}" bind:change="onChanges">
+    <van-tab title="标签1"></van-tab>
+    <van-tab title="标签2"></van-tab>
+    <van-tab title="标签3"></van-tab>
+    <van-tab title="标签4"></van-tab>
+  </van-tabs>
+</view> -->
+<!-- 侧边栏 -->
+<view>
+  <view>
+    
+    <scroll-view style="height: 90vh;width: 20vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true">
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+      <view>1</view>
+      <view>2</view>
+      <view>3</view>
+    </scroll-view>
+  </view>
+</view>

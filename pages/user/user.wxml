@@ -1,0 +1,35 @@
+<!-- 用户个人信息 -->
+<van-nav-bar
+  title="用户"
+  
+/>
+<view class="userRoot">
+  <!--用户头像-->
+  <image class="userPhoto" src="{{user.userPhoto}}"/>
+  <!--用户昵称-->
+  <view>
+    <view class="userName">{{user.userName}}</view>
+  </view>
+</view>
+<!--条目-->
+<view wx:if="{{user.userName}}">
+<view bind:tap="gotoHistory" class="entry">
+  <view class="entryContent">历史记录</view>
+  <view class="arrow"></view>
+</view>
+<view bind:tap="gotoModify" class="entry">
+  <view class="entryContent">修改资料</view>
+  <view class="arrow"></view>
+</view>
+</view>
+<view class="entry">
+  <button open-type="feedback" class="entryContent buttonNull">反馈建议</button>
+  <view class="arrow"></view>
+</view>
+<view class="entry">
+  <button open-type="contact" class="entryContent buttonNull">在线客服</button>
+  <view class="arrow"></view>
+</view>
+<button bind:tap="loginOut" wx:if="{{user.userName}}" class="logOut">退出登录</button>
+<button bind:tap="login" wx:else class="logOut">立即登录</button>
+

@@ -1,0 +1,21 @@
+<van-nav-bar
+  title="登录"
+  left-text="返回"
+  left-arrow
+  bind:click-left="onClickLeft"
+/>
+<view>
+  <view class="top">用户登录</view>
+  <view class="bottom">
+    <view class="bottom-content">账号:</view>
+    <input bindinput="getPhone" placeholder="请输入账号"/>
+  </view>
+  <view class="bottom">
+    <view class="bottom-content">密码:</view>
+    <input bindinput="getPassword" placeholder="请输入密码"/>
+  </view>
+  <view class="btn">
+    <button bind:tap="logIn" type="primary">立即登录</button>
+    <button bind:tap="gotoRegister" type="default">注册</button>
+  </view>
+</view>

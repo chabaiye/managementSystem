@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<van-nav-bar
+  title="主页"
+/>
+<view class="margin-sm padding-top-sm" style="margin: 5vw;">
+    <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+      <swiper-item wx:for="{{goodsLists}}" wx:key="item">
+        <image class="radius" src="{{item.banner}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+</view>
+<van-grid style="margin-top: 20vw;" column-num="2">
+  <van-grid-item icon="photo-o" text="文字" wx:for="{{ 4 }}" />
+</van-grid>
