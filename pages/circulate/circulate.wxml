@@ -11,7 +11,9 @@
       <scroll-view style="width: 35vw;height:90vh; " enhanced="{{true}}"show-scrollbar="{{false}}" scroll-y="true">
         <van-collapse accordion value="{{ activeNames }}" bind:change="onChange">
           <van-collapse-item title="工具" name="1">
-            代码是写出来给人看的，附带能在机器上运行
+            <view wx:for="{{category.tools}}" wx:key="item">
+              <view bind:tap="onCategory" class="category {{tabCur==index?'selected':''}}" data-id="{{index}}">{{item}}</view>
+            </view>
           </van-collapse-item>
           <van-collapse-item title="量具" name="2">
             代码是写出来给人看的，附带能在机器上运行

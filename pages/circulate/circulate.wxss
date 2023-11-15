@@ -1,1 +1,11 @@
 /* pages/circulate/circulate.wxss */
+.category{
+  color: black;
+  margin-top: 3vw;
+  height: 5vw;
+  align-items: center;
+}
+.selected{
+  font-weight: 500;
+  font-size: medium;
+}
