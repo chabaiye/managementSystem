@@ -8,10 +8,11 @@
 <!-- 侧边栏 -->
   <view>
     <view style="display: flex;">
+      <!-- 左边侧边栏 -->
       <scroll-view style="width: 35vw;height:90vh; " enhanced="{{true}}"show-scrollbar="{{false}}" scroll-y="true">
         <van-collapse bind:close="onClose" accordion value="{{ activeNames }}" bind:change="onChange">
           <van-collapse-item title="工具" name="1">
-            <view wx:for="{{category.tools}}" wx:key="item">
+            <view wx:for="{{category.tools}}" wx:key="item" bindtap='tabSelect'>
               <view bind:tap="onCategory" class="category {{tabCur==index?'selected':''}}" data-id="{{index}}">{{item}}</view>
             </view>
           </van-collapse-item>
@@ -43,15 +44,15 @@
         </van-collapse>
       </scroll-view>
       <!-- 右侧物品详情 -->
-      <scroll-view style="height: 80vh;width: 65vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true">
+      <scroll-view style="height: 80vh;width: 65vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true" scroll-into-view="main-{{mainCur-1}}-{{tabCur}}">
       <!-- 外部大盒子，包含标题与每个的内容 -->
-      <view style="height: auto; width: auto;" wx:for="{{goods}}" wx:key="item">
+      <view style="height: auto; width: auto;" wx:for="{{goods}}" wx:key="item" wx:for-index="firstIdx">
         <!-- 标题 -->
         <view>
             <text>{{item.name}}</text>
         </view>
         <!-- 二层标题外部盒子 -->
-        <view style="margin-top: 5vw;" wx:for="{{item.goodList}}" wx:key="item">
+        <view style="margin-top: 5vw;" wx:for="{{item.goodList}}" wx:key="item" wx:for-index="secondIdx" id="main-{{firstIdx}}-{{secondIdx}}">
           <!-- 二层标题 -->
           <view>
             <text>{{item.name}}</text>

@@ -6,6 +6,7 @@ Page({
    */
   data: {
     tabCur:-1,
+    mainCur:0,
     activeNames: ['1'],
     goods: [{
       "name":"工具",
@@ -34,6 +35,30 @@ Page({
           "url":"../../img/下载.jpg",
           "num":80
         }]
+      },{
+        "name":"螺刀类",
+        "num":1,
+        "underGoodList":[{
+          "name":"螺刀1",
+          "url":"../../img/下载.jpg",
+          "num":10
+        },{
+          "name":"螺刀2",
+          "url":"../../img/下载.jpg",
+          "num":10
+        },{
+          "name":"螺刀1",
+          "url":"../../img/下载.jpg",
+          "num":10
+        },{
+          "name":"螺刀1",
+          "url":"../../img/下载.jpg",
+          "num":10
+        },{
+          "name":"螺刀1",
+          "url":"../../img/下载.jpg",
+          "num":10
+        }]
       }]
     }],
     category:{
@@ -52,15 +77,21 @@ Page({
     })
   },
   onClose(e){
-    this.setData({
-      'tabCur':-1
-    })
+    
   },
   onCategory(e){
-    console.log("index:"+e.currentTarget.dataset.id);
+    console.log("mainCur:"+this.data.activeNames)
     this.setData({
-      'tabCur':e.currentTarget.dataset.id
+      tabCur:e.currentTarget.dataset.id,
+      mainCur:this.data.activeNames
     })
     console.log("tabCur:"+this.data.tabCur);
+  },
+  tabSelect(e){
+    this.setData({
+      tabCur: e.currentTarget.dataset.id,
+      mainCur: e.currentTarget.dataset.id
+    })
+
   }
 })
