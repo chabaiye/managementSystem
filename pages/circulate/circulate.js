@@ -60,6 +60,36 @@ Page({
           "num":10
         }]
       }]
+    },{
+      "name":"量具",
+      "num":3,
+      "goodList":[{
+        "name":"机械类"
+      }]
+    },{
+      "name":"大型设备",
+      "num":2,
+      "goodList":[{
+        "name":"飞机",
+        "num":0,
+        "underGoodList":[{
+          "name":"飞机1",
+          "url":"../../img/下载.jpg",
+          "num":1
+        },{
+          "name":"飞机1",
+          "url":"../../img/下载.jpg",
+          "num":1
+        },{
+          "name":"飞机1",
+          "url":"../../img/下载.jpg",
+          "num":1
+        },{
+          "name":"飞机1",
+          "url":"../../img/下载.jpg",
+          "num":1
+        }]
+      }]
     }],
     category:{
       "tools":["钳子类","螺刀类","扳手类","锤子类","专用工具类"],

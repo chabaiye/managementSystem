@@ -19,7 +19,9 @@
     "pages/user/user",
     "pages/circulate/circulate",
     "pages/purchase/purchase",
-    "pages/logIn/logIn"
+    "pages/logIn/logIn",
+    "pages/message/message",
+    "pages/lendNav/lendNav"
   ],
   "window": {
     "navigationBarTextStyle": "black",

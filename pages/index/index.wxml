@@ -9,6 +9,6 @@
       </swiper-item>
     </swiper>
 </view>
-<van-grid style="margin-top: 20vw;" column-num="2">
-  <van-grid-item icon="photo-o" text="文字" wx:for="{{ 4 }}" />
+<van-grid clickable="true" style="margin-top: 20vw;" column-num="2">
+  <van-grid-item icon="photo-o" link-type="reLaunch" wx:for="{{indexTabText}}" wx:key="{{item}}" url="{{item.url}}" text="{{item.name}}"  />
 </van-grid>

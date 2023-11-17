@@ -1,0 +1,10 @@
+<van-nav-bar
+  title="物资借还"
+  left-text="返回"
+  left-arrow
+  bind:click-left="onClickLeft"
+/>
+<button bind:tap="naviToCir">物资租借</button>
+<button>未审批</button>
+<button>已审批</button>
+<button>已完成</button>

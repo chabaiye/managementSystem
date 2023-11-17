@@ -10,6 +10,13 @@
       "list": [
         {
           "name": "",
+          "pathName": "pages/lendNav/lendNav",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
           "pathName": "pages/purchase/purchase",
           "query": "",
           "launchMode": "default",

@@ -1,6 +1,19 @@
 // index.js
 Page({
   data: {
+    indexTabText:[{
+      "name":"物资借出",
+      "url":"/pages/circulate/circulate"
+    },{
+      "name":"物资申购",
+      "url":""
+    },{
+      "name":"工具报修",
+      "url":""
+    },{
+      "name":"我的消息",
+      "url":""
+    }],
     goodsLists: [{
       "id": 0,
       "name": "居家用品",
@@ -242,6 +255,9 @@ Page({
         "price": 99
       }]
     }],
+  },
+  navi(e){
+    console.log(e);
   },
   button(){
     let that = this
