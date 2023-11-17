@@ -243,4 +243,21 @@ Page({
       }]
     }],
   },
+  button(){
+    let that = this
+    wx.request({
+      url: 'http://rest.apizza.net/mock/2abcd6b23538788f213cb68bc75961c1/category?parentId',
+      data:{
+        // "goodsId":"03fb6d90-e983-47fb-bbc0-6157efac7797"
+        // parentId:"0"
+      },
+      header:{
+        'content-type': 'application/json'
+      },
+      method:"GET",
+      success(res){
+        console.log(res);
+      }
+    })
+  }
 })

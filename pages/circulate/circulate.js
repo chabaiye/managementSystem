@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabCur:0,
+    tabCur:-1,
     activeNames: ['1'],
     goods: [{
       "name":"工具",
@@ -48,6 +48,12 @@ Page({
    onChange(event) {
     this.setData({
       activeNames: event.detail,
+      'tabCur':-1
+    })
+  },
+  onClose(e){
+    this.setData({
+      'tabCur':-1
     })
   },
   onCategory(e){

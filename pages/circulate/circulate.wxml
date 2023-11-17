@@ -9,26 +9,36 @@
   <view>
     <view style="display: flex;">
       <scroll-view style="width: 35vw;height:90vh; " enhanced="{{true}}"show-scrollbar="{{false}}" scroll-y="true">
-        <van-collapse accordion value="{{ activeNames }}" bind:change="onChange">
+        <van-collapse bind:close="onClose" accordion value="{{ activeNames }}" bind:change="onChange">
           <van-collapse-item title="工具" name="1">
             <view wx:for="{{category.tools}}" wx:key="item">
               <view bind:tap="onCategory" class="category {{tabCur==index?'selected':''}}" data-id="{{index}}">{{item}}</view>
             </view>
           </van-collapse-item>
           <van-collapse-item title="量具" name="2">
-            代码是写出来给人看的，附带能在机器上运行
+            <view wx:for="{{category.measuring}}" wx:key="item">
+              <view bind:tap="onCategory" class="category {{tabCur==index?'selected':''}}" data-id="{{index}}">{{item}}</view>
+            </view>
           </van-collapse-item>
           <van-collapse-item title="大型设备" name="3">
-            代码是写出来给人看的，附带能在机器上运行
+            <view wx:for="{{category.largeEquipment}}" wx:key="item">
+              <view bind:tap="onCategory" class="category {{tabCur==index?'selected':''}}" data-id="{{index}}">{{item}}</view>
+            </view>
           </van-collapse-item>
           <van-collapse-item title="航空部件" name="4">
-            代码是写出来给人看的，附带能在机器上运行
+            <view wx:for="{{category.aviation}}" wx:key="item">
+              <view bind:tap="onCategory" class="category {{tabCur==index?'selected':''}}" data-id="{{index}}">{{item}}</view>
+            </view>
           </van-collapse-item>
           <van-collapse-item title="耗材" name="5">
-            代码是写出来给人看的，附带能在机器上运行
+            <view wx:for="{{category.consumables}}" wx:key="item">
+              <view bind:tap="onCategory" class="category {{tabCur==index?'selected':''}}" data-id="{{index}}">{{item}}</view>
+            </view>
           </van-collapse-item>
           <van-collapse-item title="危险品" name="6">
-            代码是写出来给人看的，附带能在机器上运行
+            <view wx:for="{{category.dangerous}}" wx:key="item">
+              <view bind:tap="onCategory" class="category {{tabCur==index?'selected':''}}" data-id="{{index}}">{{item}}</view>
+            </view>
           </van-collapse-item>
         </van-collapse>
       </scroll-view>

@@ -6,6 +6,8 @@
   align-items: center;
 }
 .selected{
-  font-weight: 500;
+  background-color: #f1f1f1;
+  font-weight: 800;
   font-size: medium;
+  margin-bottom: 2vw;
 }
