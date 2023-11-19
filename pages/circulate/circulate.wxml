@@ -2,12 +2,26 @@
 <van-nav-bar
   title="标题"
 />
-<van-action-sheet
+<!-- <van-action-sheet
   show="{{ show }}"
   actions="{{ actions }}"
   bind:close="sheetClose"
   bind:getuserinfo="onGetUserInfo"
-/>
+/> -->
+<van-action-sheet bind:close="sheetClose" show="{{ show }}" title="标题">
+  <view  wx:for="{{actions}}" wx:key="item">
+    <view wx:for="{{item.goodList}}" wx:key="item">
+      <view style="height: 35vh; display: flex;" wx:for="{{item.underGoodList}}" wx:key="item">
+        <image src="{{item.url}}" style="height: 35vw; width: 35vw;" mode=""/>
+          <view>
+            <view>{{item.name}}</view>
+            <view>还有{{item.num}}个</view>
+            <van-stepper disable-input id="{{firstIdx}}-{{secondIdx}}-{{thirdIdx}}" bind:minus="stepperMinus" bind:plus="stepperPlus" bind:change="stepperChanges" value="{{item.selectedNum}}" min="0" max="{{item.num}}" />
+          </view>
+      </view>
+    </view>
+  </view>
+</van-action-sheet>
 <!-- 搜索框 -->
 <view >
   <van-search value="" placeholder="请输入搜索关键词" />
@@ -49,7 +63,7 @@
           </van-collapse-item>
         </van-collapse>
 
-        <button bind:tap="showSheet" style="position: absolute; top: 120vw; width: 32vw; left: 2vw;" type="{{stepperValue==0?'primary':'warn'}}">购物车已选</button>
+        <button bind:tap="showSheet" style="position: absolute; top: 120vw; width: 32vw; left: 2vw;" type="{{stepperValue==0?'primary':'warn'}}">购物车{{stepperValue==0?'未':'已'}}选</button>
       </scroll-view>
       <!-- 右侧物品详情 -->
       <scroll-view style="height: 80vh;width: 65vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true" scroll-into-view="main-{{mainCur-1}}-{{tabCur}}">
@@ -66,13 +80,13 @@
             <text>{{item.name}}</text>
           </view>
           <!-- 物品详情 -->
-          <view style="margin-top: 3vw;" wx:for="{{item.underGoodList}}" wx:key="item" wx:for-index="thirdIdx" id="main-{{firstIdx}}-{{secondIdx}}-{{thirdIdx}}">
+          <view  style="margin-top: 3vw;" wx:for="{{item.underGoodList}}" wx:key="item" wx:for-index="thirdIdx" id="main-{{firstIdx}}-{{secondIdx}}-{{thirdIdx}}">
             <view style="display: flex; align-items: flex-end;">
               <image src="{{item.url}}" style="height: 35vw; width: 35vw;" mode=""/>
               <view>
                 <view>{{item.name}}</view>
                 <view>还有{{item.num}}个</view>
-                <van-stepper bind:minus="stepperMinus" bind:plus="stepperPlus" bind:change="stepperChanges" value="{{0}}" min="0" max="{{item.num}}" />
+                <van-stepper disable-input id="{{firstIdx}}-{{secondIdx}}-{{thirdIdx}}" bind:minus="stepperMinus" bind:plus="stepperPlus" bind:change="stepperChanges" value="{{0}}" min="0" max="{{item.num}}" />
               </view>             
             </view>
           </view>
