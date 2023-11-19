@@ -8,11 +8,8 @@ Page({
 
   },
   onClickLeft() {
-    wx.navigateBack({
-      delta: 0,
-      success: (res) => {
-        console.log("back success");
-      },
+    wx.switchTab({
+      url: '/pages/index/index',
     })
   },
   naviToCir(){

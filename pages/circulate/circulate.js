@@ -5,9 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    stepperValue:0,
     tabCur:-1,
     mainCur:0,
     activeNames: ['1'],
+    show: false,
+    actions: [
+      { name: '获取用户信息', color: '#07c160', openType: 'getUserInfo' },
+    ],
     goods: [{
       "name":"工具",
       "num":5,
@@ -106,6 +111,17 @@ Page({
       'tabCur':-1
     })
   },
+  showSheet(){
+    this.setData({
+      show: true
+    })
+  },
+  sheetClose() {
+    this.setData({ show: false });
+  },
+  onGetUserInfo(e) {
+    console.log(e.detail);
+  },
   onClose(e){
     
   },
@@ -122,6 +138,22 @@ Page({
       tabCur: e.currentTarget.dataset.id,
       mainCur: e.currentTarget.dataset.id
     })
-
+  },
+  stepperPlus(){
+    console.log("plus");
+    this.setData({
+      stepperValue: this.data.stepperValue + 1
+    })
+    console.log(this.data.stepperValue);
+  },
+  stepperMinus(){
+    console.log("minus");
+    this.setData({
+      stepperValue: this.data.stepperValue - 1
+    })
+    console.log(this.data.stepperValue);
+  },
+  stepperChanges(e){
+    console.log(e);
   }
 })

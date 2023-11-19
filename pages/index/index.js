@@ -3,7 +3,7 @@ Page({
   data: {
     indexTabText:[{
       "name":"物资借出",
-      "url":"/pages/circulate/circulate"
+      "url":"/pages/lendNav/lendNav"
     },{
       "name":"物资申购",
       "url":""
