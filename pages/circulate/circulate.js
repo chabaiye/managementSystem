@@ -211,15 +211,6 @@ Page({
   // 遮罩层
   sheetClose() {
     this.setData({ show: false });
-  },
-  test(){
-    console.log(this.data.selected);
-  },
-  showSheet(e){
-    this.setData({
-      show: true
-    });
-    console.log(this.data.selected);
     let actionTemp = this.data.selected
     let actionFinal = this.data.goods
     // 初始化actionFinal
@@ -233,9 +224,38 @@ Page({
     for (let i = 0; i < actionTemp.length; i++) {
       for (let p = 0; p < actionTemp[i].goodList.length; p++) {
         for (let n = 0; n < actionTemp[i].goodList[p].underGoodList.length; n++) {
-          console.log(i,p,n);
-          if (actionTemp[i].goodList[p].underGoodList[n].selectedNum>=0) {
-            
+          if (actionTemp[i].goodList[p].underGoodList[n].selectedNum>=0) {         
+            actionFinal[i].goodList[p].underGoodList = actionFinal[i].goodList[p].underGoodList.concat(actionTemp[i].goodList[p].underGoodList[n])
+          }
+        }      
+      }
+    }
+    // 更新action
+    this.setData({
+      actions:actionFinal
+    })
+  },
+  test(){
+    console.log(this.data.selected);
+  },
+  showSheet(e){
+    this.setData({
+      show: true
+    });
+    let actionTemp = this.data.selected
+    let actionFinal = this.data.goods
+    // 初始化actionFinal
+    for (let i = 0; i < actionTemp.length; i++) {
+      for (let p = 0; p < actionTemp[i].goodList.length; p++) {
+        console.log(actionFinal[i].goodList[p]);
+        actionFinal[i].goodList[p].underGoodList = []    
+      }
+    }
+    // 若selectedNum存在，则增加到actionFinal
+    for (let i = 0; i < actionTemp.length; i++) {
+      for (let p = 0; p < actionTemp[i].goodList.length; p++) {
+        for (let n = 0; n < actionTemp[i].goodList[p].underGoodList.length; n++) {
+          if (actionTemp[i].goodList[p].underGoodList[n].selectedNum>=0) {         
             actionFinal[i].goodList[p].underGoodList = actionFinal[i].goodList[p].underGoodList.concat(actionTemp[i].goodList[p].underGoodList[n])
           }
         }      
@@ -297,5 +317,16 @@ Page({
       selected:selectedTemp
     })
     console.log(this.data.selected);
+  },
+  goLendTab(e){
+    // 更新actions
+    this.showSheet()
+    // 将当前actions存入缓存
+    wx.setStorageSync('actions', this.data.actions)
+    
+    // 前往lendTab页
+    wx.navigateTo({
+      url: '../lendTab/lendTab',
+    })
   }
 })

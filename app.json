@@ -1,5 +1,6 @@
 {
-  "usingComponents": {
+  "usingComponents": {    
+    "van-notify": "@vant/weapp/notify/index",
     "van-action-sheet": "@vant/weapp/action-sheet/index",
     "van-search": "@vant/weapp/search/index",
     "van-tree-select": "@vant/weapp/tree-select/index",
@@ -15,6 +16,7 @@
     "van-collapse": "@vant/weapp/collapse/index",
     "van-collapse-item": "@vant/weapp/collapse-item/index",
     "van-stepper": "@vant/weapp/stepper/index"
+
   },
   "pages": [
     "pages/index/index",
@@ -23,7 +25,8 @@
     "pages/purchase/purchase",
     "pages/logIn/logIn",
     "pages/message/message",
-    "pages/lendNav/lendNav"
+    "pages/lendNav/lendNav",
+    "pages/lendTab/lendTab"
   ],
   "window": {
     "navigationBarTextStyle": "black",

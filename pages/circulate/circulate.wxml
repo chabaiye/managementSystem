@@ -9,9 +9,9 @@
   bind:getuserinfo="onGetUserInfo"
 /> -->
 <van-action-sheet bind:close="sheetClose" show="{{ show }}" title="标题">
-  <view  wx:for="{{actions}}" wx:key="item">
+  <view   wx:for="{{actions}}" wx:key="item">
     <view wx:for="{{item.goodList}}" wx:key="item">
-      <view style="height: 35vh; display: flex;" wx:for="{{item.underGoodList}}" wx:key="item">
+      <view style="height: 40vw; display: flex;" wx:for="{{item.underGoodList}}" wx:key="item">
         <image src="{{item.url}}" style="height: 35vw; width: 35vw;" mode=""/>
           <view>
             <view>{{item.name}}</view>
@@ -21,6 +21,7 @@
       </view>
     </view>
   </view>
+  <button bind:tap="goLendTab" style="width: 60vw; margin-bottom: 2vw;" type="warn">确定</button>
 </van-action-sheet>
 <!-- 搜索框 -->
 <view >
