@@ -1,0 +1,16 @@
+<van-nav-bar
+  title="教师预借"
+  left-text="返回"
+  left-arrow
+  bind:click-left="onClickLeft"
+/>
+<view>
+  <view class="top">请输入工号</view>
+  <view class="bottom">
+    <view class="bottom-content">工号:</view>
+    <input bindinput="getjobNo" placeholder="请输入工号"/>
+  </view>
+  <view class="btn">
+    <button bind:tap="sendjobNo" type="primary">立即租借</button>
+  </view>
+</view>

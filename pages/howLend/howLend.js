@@ -1,45 +1,20 @@
-// pages/logIn/logIn.js
+// pages/howLend/howLend.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    'accNumber':'',
-    'passWord':''
+
   },
-  getAccountNumber(e){
-    console.log(e.detail.value);
-    this.setData({
-      'accNumber':e.detail.value
+  naviToCir(){
+    wx.navigateTo({
+      url: '/pages/circulate/circulate',
     })
   },
-  getPassword(e){
-    console.log(e.detail.value);
-    this.setData({
-      'passWord':e.detail.value
-    })
-  },
-  onClickLeft() {
-    wx.navigateBack({
-      delta: 0,
-      success: (res) => {
-        console.log("back success");
-      },
-    })
-  },
-  logIn(){
-    let that = this
-    wx.request({
-      url: 'https://222.16.31.213/prod-api/api/wxLogin',
-      data:{
-        "accountNumber":that.data.accNumber,
-        "passWord":that.data.passWord
-      },
-      method:"POST",
-      success(res){
-        console.log(res.data);
-      }
+  naviToID(){
+    wx.navigateTo({
+      url: '/pages/lendByID/lendByID',
     })
   },
   /**

@@ -69,7 +69,7 @@
       <!-- 右侧物品详情 -->
       <scroll-view style="height: 80vh;width: 65vw; " enhanced="{{true}}"show-scrollbar="{{false}}"scroll-y="true" scroll-into-view="main-{{mainCur-1}}-{{tabCur}}">
       <!-- 外部大盒子，包含标题与每个的内容 -->
-      <view style="height: auto; width: auto;" wx:for="{{goods}}" wx:key="item" wx:for-index="firstIdx">
+      <view style="height: auto; width: auto;" wx:for="{{selected}}" wx:key="item" wx:for-index="firstIdx">
         <!-- 标题 -->
         <view>
             <text>{{item.name}}</text>
@@ -87,7 +87,7 @@
               <view>
                 <view>{{item.name}}</view>
                 <view>还有{{item.num}}个</view>
-                <van-stepper disable-input id="{{firstIdx}}-{{secondIdx}}-{{thirdIdx}}" bind:minus="stepperMinus" bind:plus="stepperPlus" bind:change="stepperChanges" value="{{0}}" min="0" max="{{item.num}}" />
+                <van-stepper disable-input id="{{firstIdx}}-{{secondIdx}}-{{thirdIdx}}" bind:minus="stepperMinus" bind:plus="stepperPlus" bind:change="stepperChanges" value="{{item.selectedNum>=1?item.selectedNum:'0'}}" min="0" max="{{item.num}}" />
               </view>             
             </view>
           </view>

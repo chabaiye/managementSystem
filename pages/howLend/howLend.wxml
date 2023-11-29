@@ -1,0 +1,9 @@
+<van-nav-bar
+  title="物资借还"
+  left-text="返回"
+  left-arrow
+  bind:click-left="onClickLeft"
+/>
+<button bind:tap="naviToID">教师预借</button>
+<button bind:tap="naviToCir">清单扫码</button>
+<button bind:tap="naviToCir">自助租借</button>

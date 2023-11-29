@@ -13,8 +13,8 @@ Page({
     })
   },
   naviToCir(){
-    wx.switchTab({
-      url: '/pages/circulate/circulate',
+    wx.navigateTo({
+      url: '/pages/howLend/howLend',
     })
   },
   /**

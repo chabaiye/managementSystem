@@ -216,7 +216,6 @@ Page({
     // 初始化actionFinal
     for (let i = 0; i < actionTemp.length; i++) {
       for (let p = 0; p < actionTemp[i].goodList.length; p++) {
-        console.log(actionFinal[i].goodList[p]);
         actionFinal[i].goodList[p].underGoodList = []    
       }
     }
@@ -234,6 +233,7 @@ Page({
     this.setData({
       actions:actionFinal
     })
+    console.log(this.data.actions);
   },
   test(){
     console.log(this.data.selected);
@@ -247,7 +247,6 @@ Page({
     // 初始化actionFinal
     for (let i = 0; i < actionTemp.length; i++) {
       for (let p = 0; p < actionTemp[i].goodList.length; p++) {
-        console.log(actionFinal[i].goodList[p]);
         actionFinal[i].goodList[p].underGoodList = []    
       }
     }
@@ -265,6 +264,7 @@ Page({
     this.setData({
       actions:actionFinal
     })
+    console.log(this.data.actions);
   },
   onCategory(e){
     console.log("mainCur:"+this.data.activeNames)
@@ -282,40 +282,44 @@ Page({
   },
   // 步进器加
   stepperPlus(){
-    console.log("plus");
     this.setData({
       stepperValue: this.data.stepperValue + 1
     })
-    console.log("stepperValue:"+this.data.stepperValue);
   },
   // 步进器减
   stepperMinus(){
-    console.log("minus");
     this.setData({
       stepperValue: this.data.stepperValue - 1
     })
-    console.log("stepperValue:"+this.data.stepperValue);
   },
   // 购物车
   stepperChanges(e){
-    var date = new Date().getTime()
+    // 为selected赋值
     var selectedTemp = this.data.selected
-    // console.log("------------");
-    // console.log(e.currentTarget.id);
-    // console.log(e.detail);
     let item = e.currentTarget.id.split('-')
     for (let i = 0; i < item.length; i++) {
       item[i] = Number(item[i])
-      // console.log(item[i]);
     }
     let num = {
       "selectedNum":e.detail
     }
-    const temp =  Object.assign({}, selectedTemp[item[0]].goodList[item[1]].underGoodList[item[2]], num);
-    selectedTemp[item[0]].goodList[item[1]].underGoodList[item[2]] = temp
+    console.log("e.detail:");
+    console.log(e.detail);
+    if (e.detail==0) {
+      console.log("执行了第一条");
+      delete selectedTemp[item[0]].goodList[item[1]].underGoodList[item[2]].selectedNum
+      console.log(selectedTemp[item[0]].goodList[item[1]].underGoodList[item[2]]);
+    }
+    if (e.detail!=0) {
+      console.log("执行了第二条");
+      const temp =  Object.assign({}, selectedTemp[item[0]].goodList[item[1]].underGoodList[item[2]], num);
+      selectedTemp[item[0]].goodList[item[1]].underGoodList[item[2]] = temp
+    }
+    
     this.setData({
-      selected:selectedTemp
+      selected:selectedTemp,
     })
+    console.log("in steeperChange selected:");
     console.log(this.data.selected);
   },
   goLendTab(e){

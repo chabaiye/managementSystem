@@ -1,42 +1,26 @@
-// pages/logIn/logIn.js
+// pages/lendByID/lendByID.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    'accNumber':'',
-    'passWord':''
+    "jobNo":0,
   },
-  getAccountNumber(e){
+  getjobNo(e){
     console.log(e.detail.value);
     this.setData({
-      'accNumber':e.detail.value
+      'jobNo':e.detail.value
     })
   },
-  getPassword(e){
-    console.log(e.detail.value);
-    this.setData({
-      'passWord':e.detail.value
-    })
-  },
-  onClickLeft() {
-    wx.navigateBack({
-      delta: 0,
-      success: (res) => {
-        console.log("back success");
-      },
-    })
-  },
-  logIn(){
+  sendjobNo(){
     let that = this
     wx.request({
-      url: 'https://222.16.31.213/prod-api/api/wxLogin',
-      data:{
-        "accountNumber":that.data.accNumber,
-        "passWord":that.data.passWord
+      url: 'https://222.16.31.213/prod-api/goods/jobCardItem/getJobCardGoods?jobNo='+that.data.jobNo,
+      header:{
+        Authorization:token
       },
-      method:"POST",
+      method:"GET",
       success(res){
         console.log(res.data);
       }

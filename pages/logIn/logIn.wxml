@@ -8,7 +8,7 @@
   <view class="top">用户登录</view>
   <view class="bottom">
     <view class="bottom-content">账号:</view>
-    <input bindinput="getPhone" placeholder="请输入账号"/>
+    <input bindinput="getAccountNumber" placeholder="请输入账号"/>
   </view>
   <view class="bottom">
     <view class="bottom-content">密码:</view>
