@@ -5,17 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    'accNumber':'',
-    'passWord':''
+    'accNumber':0,
+    'passWord':0,
+    'code':'0e1TWgml2gabrc4ayvnl2rnShw1TWgm7'
+    
   },
   getAccountNumber(e){
-    console.log(e.detail.value);
     this.setData({
       'accNumber':e.detail.value
     })
   },
   getPassword(e){
-    console.log(e.detail.value);
     this.setData({
       'passWord':e.detail.value
     })
@@ -28,17 +28,40 @@ Page({
       },
     })
   },
+
   logIn(){
     let that = this
-    wx.request({
-      url: 'https://222.16.31.213/prod-api/api/wxLogin',
-      data:{
-        "accountNumber":that.data.accNumber,
-        "passWord":that.data.passWord
-      },
-      method:"POST",
-      success(res){
-        console.log(res.data);
+    wx.login({
+      success (res) {
+        if (res.code) {
+          //发起网络请求
+          console.log(res.code);
+          that.setData({
+            code:res.code
+          })
+          
+          wx.request({
+            url: 'http://119.145.71.191/prod-api/api/wxLogin',
+            data: {
+              code: that.data.code,
+              xgh:that.data.accNumber,
+              password:that.data.passWord
+            },
+            method:"POST",
+            success(e){
+              console.log(e.data);
+              console.log(that.data.code);
+              console.log(that.data.accNumber);
+              console.log(that.data.passWord);
+              wx.setStorageSync('user',e.data)
+              wx.navigateBack({
+                delta: 0,
+              })
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
       }
     })
   },

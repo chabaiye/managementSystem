@@ -7,6 +7,11 @@ Page({
   data: {
 
   },
+  onClickLeft() {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
   naviToCir(){
     wx.navigateTo({
       url: '/pages/circulate/circulate',

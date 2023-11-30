@@ -6,6 +6,7 @@ Page({
    */
   data: {
     "jobNo":0,
+    token:'Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImM2YTY2NWJlLTM1MTUtNGRmOS04N2RmLWI5ZWU3ZTJhZGEwYiJ9.7iilBG7tuLW-NDFz4m8Mo2n2JdtqBKsGyWywc1Wh9Y4WmPjZjOjMkiEor4lLDYOf7prGuJmlt21y6wBPAObZ3g'
   },
   getjobNo(e){
     console.log(e.detail.value);
@@ -16,14 +17,19 @@ Page({
   sendjobNo(){
     let that = this
     wx.request({
-      url: 'https://222.16.31.213/prod-api/goods/jobCardItem/getJobCardGoods?jobNo='+that.data.jobNo,
+      url: 'http://119.145.71.191/prod-api/goods/jobCardItem/getJobCardGoods?jobNo='+that.data.jobNo,
       header:{
-        Authorization:token
+        'Authorization':that.data.token
       },
       method:"GET",
       success(res){
         console.log(res.data);
       }
+    })
+  },
+  onClickLeft() {
+    wx.navigateBack({
+      delta: 0,
     })
   },
   /**
@@ -44,7 +50,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    let user = wx.getStorageSync('user')
+    this.setData({
+      token:user.data.token
+    })
+    console.log(this.data.token);
   },
 
   /**

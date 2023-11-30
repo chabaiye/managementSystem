@@ -9,6 +9,7 @@ Page({
       "userName":"",
       'userPhoto':'../../img/下载.jpg'
     },
+    "userData":0
   },
 
   /**
@@ -22,12 +23,12 @@ Page({
       url: '../logIn/logIn',
     })
   },
-  // loginOut(){
-  //   this.setData({
-  //     'user':''
-  //   })
-  //   wx.setStorageSync('user', '')
-  // },
+  loginOut(){
+    this.setData({
+      'userData':0
+    })
+    wx.setStorageSync('user', 0)
+  },
   // gotoHistory(){
   //   let that = this;
   //   wx.navigateTo({
@@ -50,6 +51,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    let user = wx.getStorageSync('user')
+    this.setData({
+      userData:user
+    })
+    console.log(this.data.userData);
   },
 
   /**

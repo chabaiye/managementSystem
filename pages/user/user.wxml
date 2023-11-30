@@ -12,7 +12,7 @@
   </view>
 </view>
 <!--条目-->
-<view wx:if="{{user.userName}}">
+<view wx:if="{{userData!==0}}">
 <view bind:tap="gotoHistory" class="entry">
   <view class="entryContent">历史记录</view>
   <view class="arrow"></view>
@@ -30,6 +30,5 @@
   <button open-type="contact" class="entryContent buttonNull">在线客服</button>
   <view class="arrow"></view>
 </view>
-<button bind:tap="loginOut" wx:if="{{user.userName}}" class="logOut">退出登录</button>
+<button bind:tap="loginOut" wx:if="{{userData!==0}}" class="logOut">退出登录</button>
 <button bind:tap="login" wx:else class="logOut">立即登录</button>
-

@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    user:0,
     stepperValue:0,
     tabCur:-1,
     mainCur:0,
@@ -201,6 +202,7 @@ Page({
         }]
       }]
     }],
+    categoryTree:{}
   },
    onChange(event) {
     this.setData({
@@ -332,5 +334,35 @@ Page({
     wx.navigateTo({
       url: '../lendTab/lendTab',
     })
-  }
+  },
+  onShow(){
+    if (wx.getStorageSync('categoryTree')) {
+      let categoryTree = wx.getStorageSync('categoryTree')
+      this.setData({
+        categoryTree:categoryTree
+      })
+      console.log('success categoryTree');
+      console.log(this.data.categoryTree);
+    }else{
+      let user = wx.getStorageSync('user')
+      this.setData({
+        user:user
+      })
+      let that = this
+      console.log(that.data.user.data.token);
+      wx.request({
+        url: 'http://119.145.71.191/prod-api/goods/category/categoryTree',
+        header:{
+          Authorization:that.data.user.data.token
+        },
+      method:"GET",
+      success(res){
+        console.log(res.data);
+      },
+      false(res){
+        console.log('获取失败');
+      }
+    })
+    }
+  },
 })
